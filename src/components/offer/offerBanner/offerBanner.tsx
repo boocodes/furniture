@@ -95,11 +95,11 @@ const TitleText = styled.p`
     }
     @media(max-width: 540px){
         font-size: 40px;
-        width: 440px;
+        width: 100%;
     }
     @media(max-width: 530px){
         font-size: 22px;
-        width: 100%;
+        
     }
     
 `
