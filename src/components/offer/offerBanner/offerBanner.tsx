@@ -59,7 +59,7 @@ const ExternalWrapper = styled.div`
     }
     @media(max-width: 510px){
         padding: 15px;
-        width: 290px;
+        width: 100%;
         border-radius: 16px;
     }
     @media(max-width: 460px){
@@ -95,11 +95,11 @@ const TitleText = styled.p`
     }
     @media(max-width: 540px){
         font-size: 40px;
-        width: 100%;
+        width: 440px;
     }
     @media(max-width: 530px){
         font-size: 22px;
-        
+        width: 100%;
     }
     
 `

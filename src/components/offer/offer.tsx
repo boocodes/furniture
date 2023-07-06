@@ -13,13 +13,9 @@ function Offer({changeModalFlag, windowWidth}:Props){
     return(
         <ExternalWrapper>
             <OfferTitle>
-                Нужны заявки для
-                {
-                    windowWidth >= 600 ?
-                        <br/>
-                        :
-                        " "
-                }
+                Нужны заявки
+                <br/>
+                для
                 мебельного магазина?
             </OfferTitle>
             <OfferSubTitle>
