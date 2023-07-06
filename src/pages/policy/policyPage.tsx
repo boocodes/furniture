@@ -204,7 +204,9 @@ const ParagraphOptionElem = styled.li`
     }
     @media(max-width: 520px){
         font-size: 9px;
-       
+        &:before{
+            font-size: 20px;
+        }
     }
     
 `
