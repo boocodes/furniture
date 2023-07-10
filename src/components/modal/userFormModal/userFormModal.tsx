@@ -67,12 +67,14 @@ function UserFormModal({changeModalSuccessFlag, changeModalFlag}:Props){
     return(
         <>
             <Overlay onClick={()=>changeModalFlag(false)}/>
-            <ExternalWrapper>
+            <Modal>
+                <CloseIconWrapper>
+                    <CloseIcon onClick={()=>changeModalFlag(false)} src={"./images/closeIcon.svg"}/>
+                </CloseIconWrapper>
                 <TitleWrapper>
                     <TitleText>
                         Получите медиаплан<br/> для продвижения автобизнеса
                     </TitleText>
-                    <CloseIcon onClick={()=>changeModalFlag(false)} src={"./images/closeIcon.svg"}/>
                 </TitleWrapper>
                 <Form onSubmit={handleFormSumbit}>
                     <UsernameInput
@@ -99,34 +101,45 @@ function UserFormModal({changeModalSuccessFlag, changeModalFlag}:Props){
                     <ActiveSubmitFormInput type={"submit"} value={"Получить"}/>
                 </Form>
                 <UnderFormDescription>
-                    Нажимая кнопку «Получить», вы соглашаетесь<br/>
+                    Нажимая кнопку «Получить», вы соглашаетесь
+                    <UnderlineDescriptionText to={"/policy"}>«Политикой конфиденциальности»</UnderlineDescriptionText>
                 </UnderFormDescription>
-                <UnderlineDescriptionText to={"/policy"}>«Политикой конфиденциальности»</UnderlineDescriptionText>
 
-            </ExternalWrapper>
+
+            </Modal>
 
         </>
     )
 }
 
-
 const ExternalWrapper = styled.div`
-    position: absolute;
-    
+    position:fixed;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    top:0px;
+    left:0px;
+    width:100vw;
+    height:100vh;
+`
+
+const Modal = styled.div`
+    position: fixed;
     left:50%;
-    transform:translate(-50%, 50%);
+    top:50%;
+    transform:translate(-50%,-50%);
     padding: 38px 28px;
     border-radius: 16px;
     background-color: white;
     z-index: 5;
     font-family: 'Muller';
-    width: 450px;
+    width: 550px;
     z-index: 4;
-    @media(max-width: 480px){
-        width: 350px;
+    @media(max-width: 580px){
+        width: 400px;
         padding: 30px 15px;
     }
-    @media(max-width: 360px){
+    @media(max-width: 420px){
         width: 300px;
     }
 `
@@ -153,16 +166,22 @@ const TitleText = styled.p`
     font-weight: 700;
     color: black;
     margin-right: 20px;
-    @media(max-width: 480px){
-        font-size: 16px;
+    @media(max-width: 580px){
+        font-size: 20px;
     }
-    @media(max-width: 360px){
+    @media(max-width: 420px){
         font-size: 14px;
     }
     
 `
+const CloseIconWrapper = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    
+`
 const CloseIcon = styled.img`
     cursor: pointer;
+    width: 20px;
 `
 const Form = styled.form`
     display: flex;
@@ -194,6 +213,21 @@ const UsernameInput = styled.input<IUsernameInput>`
     @media(max-width: 360px){
         font-size: 14px;
     }
+    &:focus::-webkit-input-placeholder {
+      color: transparent
+    }
+    
+    &:focus::-moz-placeholder {
+      color: transparent
+    }
+    
+    &:focus:-moz-placeholder {
+      color: transparent
+    }
+    
+    &:focus:-ms-input-placeholder {
+      color: transparent
+    }
 `
 const PhoneNumberInput = styled(InputMask)`
     border: 1px solid #000000;
@@ -215,7 +249,7 @@ const PhoneNumberInput = styled(InputMask)`
 const ActiveSubmitFormInput = styled.input`
     font-size: 22px;
     font-weight: 500;
-    background-color: #5C6D08;
+    background-color: #345D33;
     border: none;
     border-radius: 8px;
     color: white;
@@ -252,13 +286,14 @@ const UsernameInputHelpText = styled.p`
 `
 const UnderFormDescription = styled.div`
     font-size: 14px;
-    color: #161A03;
+    
     margin-top: 15px;
+    color: #111411;
 `
 const UnderlineDescriptionText = styled(Link)`
     font-size: 14px;
-    color: #161A03;
-    
+    color: #111411;
+    margin-left: 5px;
 `
 
 

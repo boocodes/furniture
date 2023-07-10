@@ -67,7 +67,7 @@ const ExternalWrapper = styled.div<IExternalWrapper>`
     min-height: 100vh;
     position: relative;
     background-position: 50% 0%;
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
     @media(max-width: 1650px){
         background-position: 40% 10%;
